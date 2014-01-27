@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 1.2'
 # User authentication through Devise
 gem 'devise'
 
+# Random Name Generator (To hide participant names)
+gem 'namey'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

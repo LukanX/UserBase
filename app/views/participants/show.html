@@ -1,0 +1,17 @@
+<h1><%= @participant.name %></h1>
+<%= link_to "Edit", edit_participant_path(@participant.id) %> | <%= link_to "Delete Participant", @participant, method: :delete, data: { confirm: "Delete This Participant?" } %>
+<h3>Details:</h3>
+<ul>
+  <li><strong>Email:</strong>&nbsp;<%= @participant.email %></li>
+  <li><strong>Gender:</strong>&nbsp;<%= @participant.gender %></li>
+  <% unless @participant.age.nil? %>
+  <li><strong>Age:</strong>&nbsp;<%= @participant.age %></li>
+  <% end %>
+  <% unless @participant.income.nil? %>
+  <li><strong>Income:</strong>&nbsp;<%= @participant.income %></li>
+  <% end %>
+</ul>
+
+<h3>Tags:</h3>
+
+<%= link_to "back to participants", participants_path %>

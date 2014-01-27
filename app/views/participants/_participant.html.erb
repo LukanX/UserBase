@@ -1,0 +1,10 @@
+<li>
+  <div class="name"><%= link_to participant.name, participant_path(participant.id) %> / <%= participant.fakename %></div>
+  <div class="details">
+    <%= participant.email %> | <%= participant.age %>
+  </div>
+  <div>
+    <%= link_to "Edit Participant", edit_participant_path(participant.id) %>
+    | <%= link_to "Delete Participant", participant, method: :delete, data: { confirm: "Delete This Participant?" } %>
+  </div>
+</li>

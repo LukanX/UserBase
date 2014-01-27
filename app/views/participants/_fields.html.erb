@@ -1,0 +1,30 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<div><%= f.label :name %> <br />
+<%= f.text_field :name, autofocus: true %></div>
+
+<div><%= f.label :email %> <br />
+<%= f.email_field :email %></div>
+
+<div>
+  <%= f.label :gender %> <br />
+  <%= f.radio_button :gender, "male" %>
+  <%= f.label :gender_male, "Male" %>
+  &nbsp; &nbsp;
+  <%= f.radio_button :gender, "female" %>
+  <%= f.label :gender_female, "Female" %>
+</div>
+
+<div><%= f.label :age %> <br />
+<%= f.text_field :age %></div>
+
+<div> <%= f.label :income %> <br />
+<%= f.select(:income, 
+  options_for_select([
+    "Not Specified",
+    "Under $25k",
+    "$25k - $50k",
+    "$50k - $75",
+    "$75k - $100k",
+    "More than $100k"
+    ])) %></div>

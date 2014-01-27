@@ -1,0 +1,9 @@
+<h1>New Participant</h1>
+
+<%= form_for @participant do |f| %>
+
+  <%= render 'fields', f: f %>
+
+  <div><%= f.submit "Create Participant" %></div>
+
+<% end %>
