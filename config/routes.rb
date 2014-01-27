@@ -6,6 +6,8 @@ UserBase::Application.routes.draw do
 
   resources :participants
 
+  get "participants/tagged"
+
   root :to => "static#home"
 
   # The priority is based upon order of creation: first created -> highest priority.

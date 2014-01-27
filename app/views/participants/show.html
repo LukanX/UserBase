@@ -12,6 +12,12 @@
   <% end %>
 </ul>
 
-<h3>Tags:</h3>
+<% if @participant.tags.any? %>
+  <h3>Tags:</h3>
+
+  <% @participant.tags.each do |tag| %>
+    <%= link_to tag.name, participants_path(:tag => tag.name) %>
+  <% end %> <br />
+<% end %>
 
 <%= link_to "back to participants", participants_path %>

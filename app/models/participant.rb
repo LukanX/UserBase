@@ -11,6 +11,8 @@ class Participant < ActiveRecord::Base
   validates :fakename, presence: true, :on => :save
   validates :gender, presence: true
 
+  acts_as_taggable
+
   def make_fake_name
     @generator = Namey::Generator.new
     if self.gender == "female"

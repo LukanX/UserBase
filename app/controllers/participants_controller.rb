@@ -19,7 +19,11 @@ class ParticipantsController < ApplicationController
   end
 
   def index
-    @participants = Participant.all
+    if params[:tag].present? 
+      @participants = Participant.tagged_with(params[:tag])
+    else 
+      @participants = Participant.all
+    end  
   end
 
   def update
@@ -42,9 +46,17 @@ class ParticipantsController < ApplicationController
     redirect_to participants_path
   end
 
+  def tagged
+    if params[:tag].present? 
+      @participants = Participant.tagged_with(params[:tag])
+    else 
+      @participants = Participant.all
+    end  
+  end
+
   private
 
   def participant_params
-    params.require(:participant).permit(:name, :email, :gender, :age, :fakename, :income)
+    params.require(:participant).permit(:name, :email, :gender, :age, :fakename, :income, :tag_list)
   end
 end
