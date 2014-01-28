@@ -1,0 +1,9 @@
+<h1>Edit Study</h1>
+
+<%= form_for @study do |f| %>
+
+  <%= render 'fields', f: f %>
+  <div>
+    <%= f.submit "Update Study" %>
+  </div>
+<% end %>

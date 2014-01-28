@@ -5,6 +5,8 @@
   <h2>Welcome <%= current_user.name %></h2>
   <h4><%= link_to "Create Participant", new_participant_path %></h4>
   <h4><%= link_to "View Participants", participants_path %></h4>
+  <h4><%= link_to "Create Study", new_study_path %></h4>
+  <h4><%= link_to "View Studies", studies_path %></h4>
   <%= link_to "Edit Profile", edit_user_registration_path %> |
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 <% else %>

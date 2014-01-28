@@ -1,0 +1,5 @@
+<h1><%= @study.name %></h1>
+<h3><%= @study.description %></h3>
+<%= link_to "edit", edit_study_path %> | 
+<%= link_to "delete", @study, method: :delete, data: { confirm: "Delete This Study?" } %> <br />
+<%= link_to "back to studies", studies_path %>

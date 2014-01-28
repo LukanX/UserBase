@@ -4,11 +4,12 @@ UserBase::Application.routes.draw do
   get "static/about"
   get "static/help"
 
-  resources :participants
+  resources :participants, :studies
 
   get "participants/tagged"
 
   root :to => "static#home"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
