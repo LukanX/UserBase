@@ -2,5 +2,13 @@
 <h3><%= @study.description %></h3>
 <%= link_to "edit", edit_study_path %> | 
 <%= link_to "delete", @study, method: :delete, data: { confirm: "Delete This Study?" } %> <br />
+
+<% if @interviews.any? %>
+  <h3>Interviews</h3>
+  <ul>
+    <%= render @interviews %>
+  </ul>
+<% end %>
+
 <h4><%= link_to "Create Interview", new_study_interview_path(@study) %></h4>
 <%= link_to "back to studies", studies_path %>

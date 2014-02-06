@@ -1,4 +1,5 @@
 class StudiesController < ApplicationController
+  before_filter :authenticate_user!
   def new
     @study = Study.new
   end
@@ -15,6 +16,7 @@ class StudiesController < ApplicationController
 
   def show
     @study = Study.find(params[:id])
+    @interviews = @study.interviews.all
   end
 
   def index
