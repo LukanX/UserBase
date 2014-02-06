@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
+//= require jquery.ui.datepicker
+//= require jquery.maskedinput.min
 //= require turbolinks
 // require_tree .
