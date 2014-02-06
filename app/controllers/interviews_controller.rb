@@ -1,0 +1,32 @@
+class InterviewsController < ApplicationController
+
+  def new
+    @study = Study.find_by_id(params[:study_id])
+    @interview = @study.interviews.build
+
+  end
+
+  def create
+    @study = Study.find_by_id(params[:study_id])
+    @interview = @study.interviews.build(interview_parameters)
+    if @interview.save
+        flash[:success] = "Interview Saved!"
+        redirect_to study_path(@study)
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @study = Study.find_by_id(params[:study_id])
+    @participant = Participant.find_by_id(params[:participant_id])
+    @interview = @study.interviews.find(params[:id])
+  end
+
+  private
+
+  def interview_parameters
+    params.require(:interview).permit(:participant_id, :study_id, :scheduled_time)                            
+  end
+
+end

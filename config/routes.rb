@@ -4,7 +4,12 @@ UserBase::Application.routes.draw do
   get "static/about"
   get "static/help"
 
-  resources :participants, :studies
+  resources :participants
+  resources :studies do
+    resources :interviews do
+      get :autocomplete_participant_name, :on => :collection
+    end
+  end
 
   get "participants/tagged"
 

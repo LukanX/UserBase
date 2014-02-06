@@ -1,0 +1,40 @@
+<%= render 'shared/error_messages', object: f.object %>
+<div class = "ui-widget">
+  <label for="participant_name">Participant Name:</label> <br/>
+  <input type="text" id="participant_name">
+</div>
+<div>
+  <%= f.hidden_field :participant_id, :id => "participant_id" %>
+</div>
+
+<div>
+  <%= f.label :scheduled_time, "Interview Date" %> </br>
+  <%= f.date_field :scheduled_time %>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+
+// Below is the name of the textfield that will be autocomplete    
+  $('#participant_name').autocomplete({
+// This shows the min length of charcters that must be typed before the autocomplete looks for a match.
+    minLength: 2,
+// This is the source of the auocomplete suggestions. In this case a list of names from the people controller, in JSON format.
+    source: '<%= participants_path(:json) %>',
+// This updates the textfield when you move the updown the suggestions list, with your keyboard. In our case it will reflect the same value that you see in the suggestions which is the participant.name.
+  focus: function(event, ui) {
+      $('#participant_name').val(ui.item.name);
+      return false;
+  },
+// Once a value in the drop down list is selected, do the following:
+        select: function(event, ui) {
+// place the participant.name value into the textfield called 'participant_name'...
+            $('#participant_name').val(ui.item.name);
+// and place the participant.id into the hidden textfield called 'link_origin_id'. 
+    $('#participant_id').val(ui.item.id);
+            return false;
+        }
+  })
+
+  });
+  </script>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  study_id: 1
+  participant_id: 1
+  scheduled_time: 2014-01-28 14:50:04
+
+two:
+  study_id: 1
+  participant_id: 1
+  scheduled_time: 2014-01-28 14:50:04

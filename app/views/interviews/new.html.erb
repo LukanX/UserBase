@@ -1,0 +1,7 @@
+<h1>Set Up Interview</h1>
+<%= form_for [@study, @interview] do |f| %>
+  <%= render 'fields', f: f %>
+  
+  <%= f.submit "Save Interview" %>
+<% end %>
+

@@ -21,9 +21,15 @@ class ParticipantsController < ApplicationController
   def index
     if params[:tag].present? 
       @participants = Participant.tagged_with(params[:tag])
+    elsif params[:term]
+      like= "%".concat(params[:term].concat("%"))
+      @participants = Participant.where("name like ?", like)
     else 
       @participants = Participant.all
-    end  
+    end
+
+    list = @participants.map {|u| Hash[ id: u.id, label: u.name, name: u.name]}
+    render json: list
   end
 
   def update
@@ -57,6 +63,7 @@ class ParticipantsController < ApplicationController
   private
 
   def participant_params
-    params.require(:participant).permit(:name, :email, :gender, :age, :fakename, :income, :tag_list)
+    params.require(:participant).permit(:name, :email, :gender, :age, :fakename, :income, :tag_list,
+                                        interview_attributes:[:id, :scheduled_time])
   end
 end

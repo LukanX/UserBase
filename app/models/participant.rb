@@ -1,6 +1,10 @@
 class Participant < ActiveRecord::Base
 
   require 'namey'
+
+  has_many :interviews, dependent: :destroy
+  has_many :studies, :through => :interviews
+
   before_create :make_fake_name
   before_save { |user| user.email = email.downcase }
 

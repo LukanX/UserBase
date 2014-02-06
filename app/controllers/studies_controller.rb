@@ -44,6 +44,7 @@ class StudiesController < ApplicationController
   private
 
   def study_parameters
-    params.require(:study).permit(:name, :date, :description)
+    params.require(:study).permit(:name, :date, :description, :id,
+                                  interview_attributes:[:participant_id, :study_id, :scheduled_time, :id])
   end
 end
