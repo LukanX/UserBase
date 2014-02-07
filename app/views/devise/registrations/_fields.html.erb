@@ -3,11 +3,19 @@
 <div><%= f.label :name %><br />
 <%= f.text_field :name, :autofocus => true %></div>
 
-<div><%= f.label :email %><br />
+<div><%= f.label :email %>
 <%= f.email_field :email %></div>
 
-<div><%= f.label :password %><br />
-<%= f.password_field :password %></div>
+<div>
+  <%= f.label :timzone, "Your Time Zone" %> <br />
+  <%= f.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones %>
+</div>
+<% if params[:action] =='edit' %>
+  <%= f.label :password, "New Password" %> <em>(leave blank if you don't want to change it)</em>
+<% else %>
+  <div><%= f.label :password %>
+  <% end %><br />
+  <%= f.password_field :password %></div>
 
 <div><%= f.label :password_confirmation %><br />
 <%= f.password_field :password_confirmation %></div>

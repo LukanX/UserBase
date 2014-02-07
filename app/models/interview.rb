@@ -21,12 +21,12 @@ class Interview < ActiveRecord::Base
 
   def sched_date_field=(date)
     # Change back to datetime friendly format
-    @sched_date_field = Date.strptime(date, "%d/%y/%Y").strftime("%Y-%m-%d")
+    @sched_date_field = Date.strptime(date, "%m/%d/%Y").strftime("%Y-%m-%d")
   end
 
   def sched_time_field=(time)
     # Change back to datetime friendly format
-    @sched_time_field = Time.parse(time).strftime("%H:%M:%S")
+    @sched_time_field = Time.parse(time).utc.strftime("%H:%M:%S")
   end
 
   def convert_to_datetime

@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :password, presence: true, length: { minimum: 8 }, :on => :save
   validates :password_confirmation, presence: true, :on => :save
+  validates :timezone, presence: true, :on => :save
 end

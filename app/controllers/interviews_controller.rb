@@ -3,7 +3,6 @@ class InterviewsController < ApplicationController
   def new
     @study = Study.find_by_id(params[:study_id])
     @interview = @study.interviews.build
-
   end
 
   def create
@@ -21,6 +20,13 @@ class InterviewsController < ApplicationController
     @study = Study.find_by_id(params[:study_id])
     @participant = Participant.find_by_id(params[:participant_id])
     @interview = @study.interviews.find(params[:id])
+  end
+
+  def destroy
+    @study = Study.find_by_id(params[:study_id])
+    @interview = @study.interviews.find(params[:id]).destroy
+    flash[:success] = "Interview Deleted"
+    redirect_to study_path(@study)
   end
 
   private
