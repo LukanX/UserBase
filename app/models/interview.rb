@@ -26,11 +26,23 @@ class Interview < ActiveRecord::Base
 
   def sched_time_field=(time)
     # Change back to datetime friendly format
-    @sched_time_field = Time.parse(time).utc.strftime("%H:%M:%S")
+    @sched_time_field = Time.parse(time).utc.strftime("%H:%M:%S %z")
+  end
+
+  def future_offset
+    @future_offset ||= Time.parse(@sched_date_field).utc_offset
+  end
+
+  def present_offset
+    @present_offset ||= Time.now.utc_offset
+  end
+
+  def dst_compensation
+    @dst_compensation ||= present_offset - future_offset
   end
 
   def convert_to_datetime
-    self.scheduled_time = DateTime.parse("#{@sched_date_field} #{@sched_time_field}")
+    self.scheduled_time = DateTime.parse("#{@sched_date_field} #{@sched_time_field}").utc + dst_compensation.seconds
   end
 
   def participant_name

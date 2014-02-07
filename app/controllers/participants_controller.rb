@@ -30,7 +30,11 @@ class ParticipantsController < ApplicationController
     end
 
     list = @participants.map {|u| Hash[ id: u.id, label: u.name, name: u.name]}
-    render json: list
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: list }
+    end
   end
 
   def update
