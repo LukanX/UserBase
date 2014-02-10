@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use postgres as the database for Active Record
-gem 'pg'
+gem 'pg', group: [:development, :test, :production]
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -51,9 +51,6 @@ end
 # For Heroku
 gem 'rails_12factor', group: :production
 
-group :production do
-  gem 'pg'
-end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
