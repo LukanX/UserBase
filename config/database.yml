@@ -21,4 +21,5 @@ production:
   encoding: unicode
   database: myapp_production
   pool: 5
-  password: 
+  user: lansing.cookson@gmail.com
+  password: lc!6r59rxtb
