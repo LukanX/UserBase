@@ -30,8 +30,8 @@ gem 'jbuilder', '~> 1.2'
 # User authentication through Devise
 gem 'devise'
 
-# Random Name Generator (To hide participant names)
-gem 'namey'
+# Random Name Generator (To hide participant names) removed due to sqlite dependency.
+#gem 'namey'
 
 # Tagging
 gem 'acts-as-taggable-on'

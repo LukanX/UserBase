@@ -68,7 +68,7 @@ class ParticipantsController < ApplicationController
   private
 
   def participant_params
-    params.require(:participant).permit(:name, :email, :gender, :age, :fakename, :income, :tag_list,
+    params.require(:participant).permit(:name, :email, :gender, :age, :income, :tag_list,
                                         interview_attributes:[:id, :scheduled_time])
   end
 end
