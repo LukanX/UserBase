@@ -44,10 +44,18 @@ class InterviewsController < ApplicationController
     end
   end
 
+  def index
+    if params[:tag].present?
+      @interviews = Interview.tagged_with(params[:tag])
+    else
+      @interviews = Interview.all
+    end
+  end
+
   private
 
   def interview_parameters
-    params.require(:interview).permit(:participant_id, :study_id, :scheduled_time, :sched_time_field, :sched_date_field, :notes)                            
+    params.require(:interview).permit(:participant_id, :study_id, :scheduled_time, :sched_time_field, :sched_date_field, :notes, :tag_list)                            
   end
 
 end

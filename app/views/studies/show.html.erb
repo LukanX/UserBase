@@ -2,6 +2,13 @@
 <h3><%= @study.description %></h3>
 <%= link_to "edit", edit_study_path %> | 
 <%= link_to "delete", @study, method: :delete, data: { confirm: "Delete This Study?" } %> <br />
+<% if @study.tags.any? %>
+  <h3>Tags:</h3>
+
+  <% @study.tags.each do |tag| %>
+    <%= link_to tag.name, studies_path(:tag => tag.name) %>
+  <% end %> <br />
+<% end %>
 
 <% if @interviews.any? %>
   <h3>Interviews</h3>
@@ -11,4 +18,9 @@
 <% end %>
 
 <h4><%= link_to "Create Interview", new_study_interview_path(@study) %></h4>
+
+<% if @study.notes.present? %>
+  <h2>Notes</h2>
+  <%= markdown @study.notes %>
+<% end %>
 <%= link_to "back to studies", studies_path %>

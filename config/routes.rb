@@ -6,12 +6,16 @@ UserBase::Application.routes.draw do
 
   resources :participants
   resources :studies do
-    resources :interviews do
+    resources :interviews, except: :index do
       get :autocomplete_participant_name, :on => :collection
     end
   end
 
+  resources :interviews, only: :index
+
   get "participants/tagged"
+  get "studies/tagged"
+  get "interviews/tagged"
 
   root :to => "static#home"
 

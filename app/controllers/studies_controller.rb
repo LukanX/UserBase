@@ -20,7 +20,12 @@ class StudiesController < ApplicationController
   end
 
   def index
-    @studies = Study.all
+    if params[:tag].present? 
+      @studies = Study.tagged_with(params[:tag])
+    else
+      @studies = Study.all
+    end
+
   end
 
   def edit
@@ -29,7 +34,7 @@ class StudiesController < ApplicationController
 
   def update
     @study = Study.find(params[:id])
-    if @study.update_attributes(study_params)
+    if @study.update_attributes(study_parameters)
       flash[:success] = "Study Updated"
       redirect_to @study
     else
@@ -46,7 +51,7 @@ class StudiesController < ApplicationController
   private
 
   def study_parameters
-    params.require(:study).permit(:name, :date, :description, :id,
+    params.require(:study).permit(:name, :date, :description, :id, :notes, :tag_list,
                                   interview_attributes:[:participant_id, :study_id, :scheduled_time, :id])
   end
 end

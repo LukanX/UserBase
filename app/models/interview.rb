@@ -9,6 +9,7 @@ class Interview < ActiveRecord::Base
 
   validates :study_id, presence: true
   validates :participant_id, presence: true
+  acts_as_taggable
 
 
   def sched_date_field
