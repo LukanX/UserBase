@@ -1,24 +1,24 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<div><%= f.label :name %> <br />
+<div><%= f.label :name %>
 <%= f.text_field :name, autofocus: true %></div>
 
-<div><%= f.label :email %> <br />
+<div><%= f.label :email %> 
 <%= f.email_field :email %></div>
 
 <div>
-  <%= f.label :gender %> <br />
+  <%= f.label :gender %> 
   <%= f.radio_button :gender, "male" %>
-  <%= f.label :gender_male, "Male" %>
+  <%= f.label :gender_male, "Male", :class => "radio" %>
   &nbsp; &nbsp;
   <%= f.radio_button :gender, "female" %>
-  <%= f.label :gender_female, "Female" %>
+  <%= f.label :gender_female, "Female", :class => "radio" %>
 </div>
 
-<div><%= f.label :age %> <br />
+<div><%= f.label :age %> 
 <%= f.text_field :age %></div>
 
-<div> <%= f.label :income %> <br />
+<div> <%= f.label :income %> 
 <%= f.select(:income, 
   options_for_select([
     "Not Specified",
@@ -31,6 +31,6 @@
 </div>
 
 <div>
-  <%= f.label :tags %> <br />
+  <%= f.label :tags %> 
   <%= f.text_field :tag_list %>
 </div>

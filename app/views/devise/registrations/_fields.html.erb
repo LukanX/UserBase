@@ -1,21 +1,23 @@
 <%= devise_error_messages! %>
 
-<div><%= f.label :name %><br />
+<div><%= f.label :name %>
 <%= f.text_field :name, :autofocus => true %></div>
 
 <div><%= f.label :email %>
 <%= f.email_field :email %></div>
 
 <div>
-  <%= f.label :timzone, "Your Time Zone" %> <br />
+  <%= f.label :timzone, "Your Time Zone" %> 
   <%= f.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones %>
 </div>
 <% if params[:action] =='edit' %>
-  <%= f.label :password, "New Password" %> <em>(leave blank if you don't want to change it)</em>
+  <div><%= f.label :password do %>
+    New Password <em>(leave blank if you don't want to change it)</em>
+  <% end %>
 <% else %>
   <div><%= f.label :password %>
-  <% end %><br />
-  <%= f.password_field :password %></div>
+<% end %>
+<%= f.password_field :password %></div>
 
-<div><%= f.label :password_confirmation %><br />
+<div><%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation %></div>

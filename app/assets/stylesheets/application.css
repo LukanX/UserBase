@@ -10,8 +10,11 @@
  *
  *= require_self
  *= require reset
- *= require typography
  *= require jquery.ui.autocomplete
  *= require jquery.ui.datepicker
+ *= require typography
+ *= require structure
+ *= require style
+*= require jquery.dropdown
  * require_tree .
  */

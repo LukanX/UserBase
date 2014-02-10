@@ -1,17 +1,28 @@
-<h1>UserBase</h1>
-<p>All Your Base Are Belong to Us(ers)</p>
 
-<% if user_signed_in? %>
-  <h2>Welcome <%= current_user.name %></h2>
-  <h4><%= link_to "Create Participant", new_participant_path %></h4>
-  <h4><%= link_to "View Participants", participants_path %></h4>
-  <h4><%= link_to "Create Study", new_study_path %></h4>
-  <h4><%= link_to "View Studies", studies_path %></h4>
-  <%= link_to "Edit Profile", edit_user_registration_path %> |
-  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <h2>Welcome to UserBase</h2>
-  <%= link_to "Sign In", new_user_session_path %> |
-  <%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
+  <h1 class = "main-title">UserBase</h1>
+
+  <% if user_signed_in? %>
+    <h2>Welcome, <%= current_user.name %></h2>
+    <div class="section">
+      <%= link_to studies_path do %>
+        <div class="span6 action-tile big">View Studies</div>
+      <% end %>
+      <%= link_to participants_path do %>
+        <div class="span6 action-tile big">View Participants</div>
+      <% end %>
+      <%= link_to new_study_path do %>
+        <div class="span6 action-tile small">+ Create A Study</div>
+      <% end %>
+      <%= link_to new_participant_path do %>
+        <div class="span6 action-tile small">+ Create A Participant</div>
+      <% end %>
+    </div> 
+
+  <% else %>
+
+    <h2>Welcome to UserBase, the User Research Database</h2>
+    <p>I'm not going to waste a bunch of time here since the only people currently looking at this site are most likely people I work with. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, impedit, repellat assumenda voluptate dolor nulla hic voluptatum harum labore accusantium voluptates consectetur reiciendis officiis ut eveniet. Voluptatem, ducimus corporis ut.</p>
+
+  <% end %>
+
 

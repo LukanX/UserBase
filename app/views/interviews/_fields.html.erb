@@ -1,6 +1,6 @@
 <%= render 'shared/error_messages', object: f.object %>
 <div class = "ui-widget">
-  <label for="participant_name">Participant Name:</label> <br/>
+  <label for="participant_name">Participant Name:</label>
   <input type="text" id="participant_name">
 </div>
 <div>
@@ -8,12 +8,12 @@
 </div>
 
 <div>
-  <%= f.label :sched_date_field, "Interview Date" %> </br>
+  <%= f.label :sched_date_field, "Interview Date" %> 
   <%= f.text_field :sched_date_field, :id => "date-picker" %>
 </div>
 
 <div>
-  <%= f.label :sched_time_field, "Interview Time" %> <em>(in your time zone)</em> </br>
+  <%= f.label :sched_time_field, "Interview Time" %> <em>(in your time zone)</em> 
   <%= f.text_field :sched_time_field, :id => "time-picker" %>
 </div>
 
@@ -23,7 +23,7 @@
 </div>
 
 <div>
-  <%= f.label :notes %> <br />
+  <%= f.label :notes %>
   <%= f.text_area :notes %>
 </div>
 

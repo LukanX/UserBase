@@ -7,15 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render '/shared/navbar' %>
 
-  <!-- ALERTS -->
+<div class="content main-content">
+    <!-- ALERTS -->
   <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
- <% end %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+   <% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <%= yield %>
+</div>
 
-<%= yield %>
+
+<%= render "/shared/account_dropdown" %>
 
 
 </body>
