@@ -38,8 +38,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    date_time_attribute (0.0.5)
-      activesupport (>= 3.0.0)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -95,6 +93,7 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    redcarpet (3.0.0)
     sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -136,7 +135,6 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   coffee-rails (~> 4.0.0)
-  date_time_attribute
   devise
   jbuilder (~> 1.2)
   jquery-rails
@@ -145,6 +143,7 @@ DEPENDENCIES
   pg
   rails (= 4.0.2)
   rails_12factor
+  redcarpet
   sass-rails (~> 4.0.0)
   sdoc
   turbolinks

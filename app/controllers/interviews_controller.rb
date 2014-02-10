@@ -18,7 +18,6 @@ class InterviewsController < ApplicationController
 
   def show
     @study = Study.find_by_id(params[:study_id])
-    @participant = Participant.find_by_id(params[:participant_id])
     @interview = @study.interviews.find(params[:id])
   end
 
@@ -29,10 +28,26 @@ class InterviewsController < ApplicationController
     redirect_to study_path(@study)
   end
 
+  def edit
+    @study = Study.find_by_id(params[:study_id])
+    @interview = @study.interviews.find(params[:id])
+  end
+
+  def update
+    @study = Study.find_by_id(params[:study_id])
+    @interview = @study.interviews.find(params[:id])
+    if @interview.update_attributes(interview_parameters)
+      flash[:success] = "Interview Updated"
+      redirect_to study_interview_path
+    else
+      render edit
+    end
+  end
+
   private
 
   def interview_parameters
-    params.require(:interview).permit(:participant_id, :study_id, :scheduled_time, :sched_time_field, :sched_date_field)                            
+    params.require(:interview).permit(:participant_id, :study_id, :scheduled_time, :sched_time_field, :sched_date_field, :notes)                            
   end
 
 end

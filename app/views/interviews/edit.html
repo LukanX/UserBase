@@ -1,0 +1,6 @@
+<h1>Update Interview</h1>
+<%= form_for [@study, @interview] do |f| %>
+  <%= render 'fields', f: f %>
+  
+  <%= f.submit "Update Interview" %>
+<% end %>
