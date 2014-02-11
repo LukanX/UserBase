@@ -1,7 +1,5 @@
 class Interview < ActiveRecord::Base
 
-  require 'Date'
-
   before_save :convert_to_datetime
 
   belongs_to :study
