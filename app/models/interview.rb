@@ -11,7 +11,7 @@ class Interview < ActiveRecord::Base
 
 
   def sched_date_field
-    scheduled_time.strftime("%d/%m/%Y") if scheduled_time.present?
+    scheduled_time.strftime("%m/%d/%Y") if scheduled_time.present?
   end 
 
   def sched_time_field

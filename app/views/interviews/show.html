@@ -1,5 +1,5 @@
 <h1>Interview for <%= @interview.participant_name %> ( <%= @study.name %> )</h1>
-<h3><%= @interview.scheduled_time.strftime("%m/%d%Y at %I:%M %p %Z") %></h3>
+<h3><%= @interview.scheduled_time.strftime("%m/%d%/Y at %I:%M %p %Z") %></h3>
 <%= link_to "make changes", edit_study_interview_path %>
 
 <% if @interview.notes.present? %>
