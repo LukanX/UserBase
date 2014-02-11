@@ -25,7 +25,7 @@ class Interview < ActiveRecord::Base
 
   def sched_time_field=(time)
     # Change back to datetime friendly format
-    @sched_time_field = Time.parse(time).utc.strftime("%H:%M:%S %z")
+    @sched_time_field = Time.parse(time).in_time_zone.strftime("%H:%M:%S %z")
   end
 
   def future_offset
@@ -45,7 +45,7 @@ class Interview < ActiveRecord::Base
   end
 
   def participant_name
-    @participant_name = Participant.find_by_id(self.participant_id).name
+    Participant.find_by_id(self.participant_id).name if participant_id.present?
   end
 
 end
