@@ -25,7 +25,7 @@ class Interview < ActiveRecord::Base
 
   def sched_time_field=(time)
     # Change back to datetime friendly format
-    @sched_time_field = Time.parse(time).strftime("%H:%M:%S %z")
+    @sched_time_field = Time.parse(time).utc.strftime("%H:%M:%S %z")
   end
 
   def future_offset

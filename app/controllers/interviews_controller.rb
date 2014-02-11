@@ -8,6 +8,7 @@ class InterviewsController < ApplicationController
   def create
     @study = Study.find_by_id(params[:study_id])
     @interview = @study.interviews.build(interview_parameters)
+    Time.zone = current_user.timezone
     if @interview.save
         flash[:success] = "Interview Saved!"
         redirect_to study_path(@study)
@@ -36,6 +37,7 @@ class InterviewsController < ApplicationController
   def update
     @study = Study.find_by_id(params[:study_id])
     @interview = @study.interviews.find(params[:id])
+    Time.zone = current_user.timezone
     if @interview.update_attributes(interview_parameters)
       flash[:success] = "Interview Updated"
       redirect_to study_interview_path
