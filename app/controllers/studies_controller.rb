@@ -16,7 +16,8 @@ class StudiesController < ApplicationController
 
   def show
     @study = Study.find(params[:id])
-    @interviews = @study.interviews.all
+    @interviews = @study.interviews.all(order: 'scheduled_time ASC')
+    @interview_dates = @interviews.group_by{ |t| t.scheduled_time.to_date }
   end
 
   def index

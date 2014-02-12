@@ -12,9 +12,12 @@
 
 <% if @interviews.any? %>
   <h3>Interviews</h3>
-  <ul>
-    <%= render @interviews %>
-  </ul>
+  <% @interview_dates.each do |date, interviews| %>
+    <h4><%= date.strftime("%B %d") %></h4>
+    <% interviews.each do |interview| %>
+      <p><%= interview.scheduled_time.strftime("%I:%M %p %Z") %> | <%= link_to interview.participant.name, study_interview_path(@study, interview.id) %></p>
+    <% end %>
+  <% end %>
 <% end %>
 
 <h4><%= link_to "Create Interview", new_study_interview_path(@study) %></h4>

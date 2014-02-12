@@ -10,6 +10,7 @@ class Interview < ActiveRecord::Base
   acts_as_taggable
 
 
+
   def sched_date_field
     scheduled_time.strftime("%m/%d/%Y") if scheduled_time.present?
   end 
