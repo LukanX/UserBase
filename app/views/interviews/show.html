@@ -3,6 +3,8 @@
 <%= link_to "make changes", edit_study_interview_path %>
 
 <% if @interview.notes.present? %>
+<div class="notes">
   <h2>Notes</h2>
   <%= markdown @interview.notes %>
+</div>
 <% end %>

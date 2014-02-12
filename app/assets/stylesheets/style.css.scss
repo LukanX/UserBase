@@ -80,3 +80,22 @@ input[type="radio"]{
 textarea{
   height: 100px;
 }
+
+/* NOTES */
+.notes{
+  ul{
+    margin-left: 20px;
+    list-style: disc;
+    li{
+      margin: 7px 0; 
+        ul{
+          list-style: circle;
+          //margin-left: 20px;
+          //margin-bottom: 5px;
+          li ul{
+            list-style: square;
+          }
+      }
+    }
+  }
+}

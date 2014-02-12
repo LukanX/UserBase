@@ -23,7 +23,10 @@
 <h4><%= link_to "Create Interview", new_study_interview_path(@study) %></h4>
 
 <% if @study.notes.present? %>
-  <h2>Notes</h2>
-  <%= markdown @study.notes %>
+  <div class="notes">
+    <h2>Notes</h2>
+    <%= markdown @study.notes %>
+  </div>
+  
 <% end %>
 <%= link_to "back to studies", studies_path %>
