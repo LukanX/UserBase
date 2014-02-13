@@ -15,6 +15,6 @@
  *= require typography
  *= require structure
  *= require style
-*= require jquery.dropdown
+ *= require jquery.dropdown
  * require_tree .
  */
