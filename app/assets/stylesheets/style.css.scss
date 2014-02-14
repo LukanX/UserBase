@@ -1,3 +1,17 @@
+/************* VARIABLES *********/
+$link-color: #497BAB;
+$visited-link-color: #905990;
+
+
+/* LINKS */
+a{
+  color: $link-color;
+  &:visited{ color: $visited-link-color; }
+  &:hover { text-decoration: none;}
+}
+
+
+
 /*  NAVBAR  */
 #nav-header{
   background-color: #262626;
@@ -18,9 +32,6 @@
     position: absolute;
     top: 24px;
     right: 20px;
-    a:hover{
-      text-decoration: underline;
-    }
     .dropdown a{
       color: #000;
     }
@@ -83,6 +94,12 @@ textarea{
 
 /* NOTES */
 .notes{
+  border: 1px solid black;
+  padding: 5px 20px 20px;
+  margin: 20px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
   ul{
     margin-left: 20px;
     list-style: disc;
@@ -90,12 +107,53 @@ textarea{
       margin: 7px 0; 
         ul{
           list-style: circle;
-          //margin-left: 20px;
-          //margin-bottom: 5px;
           li ul{
             list-style: square;
           }
       }
     }
+  }
+}
+
+
+/* TAGS */
+a.tag{
+  text-decoration: none;
+  padding: 3px 8px;
+  margin-right: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius:    10px;
+  border-radius:         10px;
+  background-color: #fff;
+  color: $link-color;
+  border: solid 2px $link-color;
+  font-size: .8em;
+  font-weight: bold;
+  -webkit-transition: .25s;
+  -moz-transition: .25s;
+  -ms-transition: .25s;
+  -o-transition: .25s;
+  transition: .25s;
+  &:hover{
+    background-color: $link-color;
+    color: #fff;
+  }
+}
+
+/* INTERVIEWS */
+.interview-dates{
+  ul{
+    list-decoration: none;
+    li{
+      margin: 0;
+      padding: 10px 0;
+      border-bottom: 1px solid black;
+      &:first-child{
+        border-top: 1px solid black;
+      }
+    }
+  }
+  strong{
+    font-size: 1.2em;
   }
 }

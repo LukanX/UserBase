@@ -1,33 +1,56 @@
 /*    TYPOGRAPHY STYLE    */
-
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans:400italic,400,700);
 
-h1,h2,h3,h4,h5,h6{
-  font-family: 'PT Sans', sans-serif;
-  font-weight: bold;
-  margin: 1em 0;
-}
+/* VARIABLES */
 
+$heading-font: "PT Sans", "Helvetica Neue", Helvetica, sans-serif;
+$body-font: "Open Sans", sans-serif;
+
+/* BODY */
 body{
-  font-family: 'Open Sans', sans-serif;
-}
-
-h1{
-  font-size: 2em;
-  line-height: 0.75em;
-  &.main-title{
-    font-size: 4em;
-    text-align: center;
-    margin: .25em 0;
-  }
-}
-
-h2{
-  font-size: 1.5em;
-  line-height: .68em;
-  margin: 1.2em 0;
+  font-family: $body-font;
 }
 
 p {
   line-height: 1.48em;
+  &.subtitle{
+    font-size: 1.4em;
+    margin-bottom: .25em;
+  }
+}
+
+/* HEADINGS */
+
+h1,h2,h3,h4,h5,h6{
+  font-family: $heading-font;
+  font-weight: bold;
+  margin: 1em 0;
+  //line-height: 1.2em;
+  span{
+    font-size: .75em;
+    font-family: $body-font;
+    font-weight: normal;
+  }
+}
+
+
+
+h1{
+  font-size: 2.5em;
+  &.main-title{
+    font-size: 5em;
+    text-align: center;
+    margin: .75em 0;
+  }
+  &.main-header{
+    margin: .5em 0 .15em;
+  }
+}
+
+h2{
+  font-size: 1.75em;
+}
+
+h3{
+  font-size: 1.5em;
 }
