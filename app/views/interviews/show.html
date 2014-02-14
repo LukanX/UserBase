@@ -1,10 +1,26 @@
-<h1>Interview for <%= @interview.participant_name %> ( <%= @study.name %> )</h1>
-<h3><%= @interview.scheduled_time.strftime("%m/%d/%Y at %I:%M %p %Z") %></h3>
+<h1 class = "main-header">Interview for <%= link_to @interview.participant_name, participant_path(@interview.participant_id) %> (<%= link_to @study.name, study_path(@study) %>)</h1>
+<p.sub-title><%= @interview.scheduled_time.strftime("%m/%d/%Y at %I:%M %p %Z") %></p>
 <%= link_to "make changes", edit_study_interview_path %>
 
+<% if @interview.tags.any? %>
+  <div class="section">
+    <div class="span12">
+       <h3>Tags:</h3>
+      <% @interview.tags.each do |tag| %>
+        <%= link_to tag.name, interviews_path(:tag => tag.name), :class => "tag" %>
+      <% end %> <br />
+    </div>
+  </div>
+<% end %>
+
+
 <% if @interview.notes.present? %>
-<div class="notes">
-  <h2>Notes</h2>
-  <%= markdown @interview.notes %>
+<div class = "section">
+  <div class = "span12">
+    <h2>Notes:</h2>
+    <div class="notes">
+      <%= markdown @interview.notes %>
+    </div>
+  </div>
 </div>
 <% end %>

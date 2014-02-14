@@ -13,7 +13,9 @@
 </div>
 
 <div>
-  <%= f.label :sched_time_field, "Interview Time" %> <em>(in your time zone)</em> 
+  <%= f.label :sched_time_field do %> 
+    Interview Time <em>(in your time zone)</em> 
+  <% end %>
   <%= f.text_field :sched_time_field, :id => "time-picker" %>
 </div>
 

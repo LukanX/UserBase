@@ -23,10 +23,14 @@
 
 
 <% if @study.notes.present? %>
-    <div class="notes">
+  <div class="section">
+    <div class = "span12">
       <h2>Notes</h2>
-      <%= markdown @study.notes %>
+      <div class="notes">
+        <%= markdown @study.notes %>
+      </div>
     </div>
+  </div>
   
 <% end %>
 <%= link_to "back to studies", studies_path %>
