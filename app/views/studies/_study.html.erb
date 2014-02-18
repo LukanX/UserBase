@@ -1,8 +1,8 @@
 <li>
   <p class="study-name"><strong><%= link_to study.name, study_path(study) %></strong></p>
   <p class="study-description"><%= study.description %></p>
-  <em><%= study.date_range.first.strftime("%B %d") %>
+  <p><em><%= study.date_range.first.strftime("%B %d") %>
       <% if study.date_range.length > 1 %>
         - <%= study.date_range.last.strftime("%B %d") %>
-      <% end %></em>
+      <% end %></em></p>
 </li>
