@@ -165,3 +165,17 @@ a.tag{
     font-size: 1.2em;
   }
 }
+
+/* STUDIES */
+
+.study_months{
+    list-decoration: none;
+    &>li{
+      margin: 0;
+      padding: 10px 0;
+      border-top: 1px solid black;
+      &:first-child{
+        border-top: none;
+      }
+    }
+  }
