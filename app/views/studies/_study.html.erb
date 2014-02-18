@@ -1,6 +1,6 @@
 <li>
-  <div class="study-name"><strong><%= link_to study.name, study_path(study) %></strong></div>
-  <div class="study-description"><%= study.description %></div>
-  <%= link_to "edit", edit_study_path(study.id) %> | 
-  <%= link_to "delete", study, method: :delete, data: { confirm: "Delete This Study?" } %> <br />
+  <p class="study-name"><strong><%= link_to study.name, study_path(study) %></strong></p>
+  <p class="study-description"><%= study.description %></p>
+  <p><%= link_to "edit", edit_study_path(study.id) %> | 
+  <%= link_to "delete", study, method: :delete, data: { confirm: "Delete This Study?" } %> </p>
 </li>
