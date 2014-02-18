@@ -1,3 +1,13 @@
-<ul>
-  <%= render @studies %>
-</ul>
+<h1>Studies</h1>
+
+<% if @studies.any? %>
+  <ul>
+  <% @study_months.each do |month, studies| %>
+    <li> <h3> <%= month.strftime("%B %Y") %></h3>
+      <ul>
+        <%= render studies %>
+      </ul>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

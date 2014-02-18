@@ -27,6 +27,10 @@ class StudiesController < ApplicationController
       @studies = Study.all
     end
 
+    @studies.sort_by(&:first_interview)
+
+    @study_months = @studies.reverse.group_by{ |t| t.first_interview.beginning_of_month }
+
   end
 
   def edit
