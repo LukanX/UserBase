@@ -1,23 +1,29 @@
-<h1><%= @participant.name %></h1>
-<%= link_to "Edit", edit_participant_path(@participant.id) %> | <%= link_to "Delete Participant", @participant, method: :delete, data: { confirm: "Delete This Participant?" } %>
-<h3>Details:</h3>
-<ul>
-  <li><strong>Email:</strong>&nbsp;<%= @participant.email %></li>
-  <li><strong>Gender:</strong>&nbsp;<%= @participant.gender %></li>
-  <% unless @participant.age.nil? %>
-  <li><strong>Age:</strong>&nbsp;<%= @participant.age %></li>
-  <% end %>
-  <% unless @participant.income.nil? %>
-  <li><strong>Income:</strong>&nbsp;<%= @participant.income %></li>
-  <% end %>
-</ul>
+<h1 class = "main-header"><%= @participant.name %></h1>
+<p><%= link_to "Edit", edit_participant_path(@participant.id) %> | <%= link_to "Delete Participant", @participant, method: :delete, data: { confirm: "Delete This Participant?" } %></p>
+
+<div class="section">
+  <div class="span12">
+    <h3>Details:</h3>
+      <p><strong>Email:</strong>&nbsp;<%= @participant.email %></p>
+      <p><strong>Gender:</strong>&nbsp;<%= @participant.gender %></p>
+      <% unless @participant.age.nil? %>
+      <p><strong>Age:</strong>&nbsp;<%= @participant.age %></p>
+      <% end %>
+      <% unless @participant.income.nil? %>
+      <p><strong>Income:</strong>&nbsp;<%= @participant.income %></p>
+      <% end %>
+  </div>
+</div>
 
 <% if @participant.tags.any? %>
-  <h3>Tags:</h3>
-
-  <% @participant.tags.each do |tag| %>
-    <%= link_to tag.name, participants_path(:tag => tag.name) %>
-  <% end %> <br />
+  <div class="section">
+    <div class="span12">
+      <h3>Tags:</h3>
+      <% @participant.tags.each do |tag| %>
+        <%= link_to tag.name, participants_path(:tag => tag.name), :class => "tag" %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
-<%= link_to "back to participants", participants_path %>
+<p><%= link_to "back to participants", participants_path %></p>

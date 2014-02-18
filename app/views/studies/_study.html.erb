@@ -1,6 +1,8 @@
 <li>
   <p class="study-name"><strong><%= link_to study.name, study_path(study) %></strong></p>
   <p class="study-description"><%= study.description %></p>
-  <p><%= link_to "edit", edit_study_path(study.id) %> | 
-  <%= link_to "delete", study, method: :delete, data: { confirm: "Delete This Study?" } %> </p>
+  <em><%= study.date_range.first.strftime("%B %d") %>
+      <% if study.date_range.length > 1 %>
+        - <%= study.date_range.last.strftime("%B %d") %>
+      <% end %></em>
 </li>

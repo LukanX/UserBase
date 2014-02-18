@@ -11,10 +11,10 @@ class Study < ActiveRecord::Base
 
   def date_range
     @date_range ||= []
-    self.interviews.all(order: 'scheduled_time ASC').each do |t|
+    self.interviews.order('scheduled_time ASC').to_a.each do |t|
       @date_range.push(t.scheduled_time.to_date)
     end
-    return @date_range
+    return @date_range.uniq
   end
 
   def first_interview

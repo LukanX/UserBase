@@ -1,10 +1,10 @@
 <li>
-  <div class="name"><%= link_to participant.name, participant_path(participant.id) %></div>
-  <div class="details">
-    <%= participant.email %> | <%= participant.age %>
-  </div>
-  <div>
+  <p class="name"><strong><%= link_to participant.name, participant_path(participant.id) %></strong> | Age: <%= participant.age %></p>
+  <p class="details">
+    <%= participant.email %>
+  </p>
+  <p>
     <%= link_to "Edit Participant", edit_participant_path(participant.id) %>
     | <%= link_to "Delete Participant", participant, method: :delete, data: { confirm: "Delete This Participant?" } %>
-  </div>
+  </p>
 </li>
