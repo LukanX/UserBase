@@ -22,9 +22,9 @@ class ParticipantsController < ApplicationController
   def index
     if params[:tag].present? 
       @participants = Participant.tagged_with(params[:tag])
-    elsif params[:term]
+    elsif params[:term].present?
       like= "%".concat(params[:term].concat("%"))
-      @participants = Participant.where("name like ?", like)
+      @participants = Participant.where("name ilike ?", like)
     else 
       @participants = Participant.all
     end

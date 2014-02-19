@@ -4,11 +4,17 @@
     <!-- Login / Account Stuff -->
     <div class="account-container">
       <% if user_signed_in? %>
-        <a href="#" data-dropdown="#account-dropdown" class = "account-link"><%= current_user.name %></a>
+        <div>
+          <a href="#" data-dropdown="#account-dropdown" class = "account-link"><%= current_user.name %></a>
+        </div>
+        <div>
+          <%= form_tag('/search', method: :get) do %>
+            <%= search_field_tag :term, params[:term], :id => "search_field", :placeholder => "search" %>
+          <% end %>
+        </div>
      <% else %>
         <%= link_to "Sign In", new_user_session_path %> | <%= link_to "Sign Up", new_user_registration_path %>
       <% end %>
     </div>
-
   </div>
 </div>

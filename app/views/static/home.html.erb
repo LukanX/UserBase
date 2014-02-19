@@ -25,4 +25,24 @@
 
   <% end %>
 
+<script type="text/javascript">
+  $(function() {
+
+    // Below is the name of the textfield that will be autocomplete    
+    $('#search_field').autocomplete({
+      minLength: 2,
+      source: '/search.json',
+      //Set name with keyboard
+      focus: function(event, ui) { 
+        $('#search_field').val(ui.item.name);
+        return false;
+      }, 
+      // Once a value in the drop down list is selected, do the following:
+      select: function(event, ui) {
+        // place the participant.name value into the textfield called 'search_field'...
+        $('#search_field').val(ui.item.name);
+      }
+    })
+  });
+  </script>
 

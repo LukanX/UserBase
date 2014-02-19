@@ -1,8 +1,11 @@
 UserBase::Application.routes.draw do
+  get "search/index"
   devise_for :users
   get "static/home"
   get "static/about"
   get "static/help"
+
+
 
   resources :participants
   resources :studies do
@@ -12,6 +15,7 @@ UserBase::Application.routes.draw do
   end
 
   resources :interviews, only: :index
+  resources :search, only: :index
 
   get "participants/tagged"
   get "studies/tagged"

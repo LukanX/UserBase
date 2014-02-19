@@ -1,7 +1,8 @@
 /************* VARIABLES *********/
 $link-color: #497BAB;
 $visited-link-color: #905990;
-
+$dark: #333;
+$white: #fff;
 
 /* LINKS */
 a{
@@ -15,24 +16,32 @@ a{
 
 /*  NAVBAR  */
 #nav-header{
-  background-color: #262626;
+  background-color: $dark;
   position: fixed;
   top: 0;
   width: 100%;
+  line-height: 1rem;
   z-index: 10;
-  color: #fff;
+  color: $white;
+  padding: 1rem;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   a{
-    color: #fff;
+    color: $white;
     text-decoration: none;
   }
   h1{
+    margin: 5px 0 0 0;
+    float: left;
+  }
+  input{
     margin: 0;
-    text-align: center;
   }
   .account-container{
-    position: absolute;
-    top: 32px;
-    right: 20px;
+    div{
+      float: right;
+    }
     .dropdown a{
       color: #000;
     }
@@ -42,6 +51,7 @@ a{
       -webkit-border-radius: 6px;
       -moz-border-radius: 6px;
       border-radius: 6px;
+      margin: 10px 0 0 20px;
       &:hover{
         background: rgba(255,255,255, .2)
       }
@@ -89,8 +99,11 @@ select{
   font-size: 1.2em;
 }
 
-input, textarea, select{
+input{
   margin-bottom: 20px;
+}
+
+input[type="text"], textarea, select{
   padding: 5px;
   width: 50%;
 }
@@ -98,6 +111,13 @@ input, textarea, select{
 input[type="radio"]{
   width: 20px;
 }
+
+input[type="submit"]{
+  background: $dark;
+  color: $white;
+  border: none;
+}
+
 
 textarea{
   height: 100px;
@@ -135,7 +155,7 @@ a.tag{
   -webkit-border-radius: 10px;
   -moz-border-radius:    10px;
   border-radius:         10px;
-  background-color: #fff;
+  background-color: $white;
   color: $link-color;
   border: solid 2px $link-color;
   font-size: .8em;
@@ -147,7 +167,7 @@ a.tag{
   transition: .25s;
   &:hover{
     background-color: $link-color;
-    color: #fff;
+    color: $white;
   }
 }
 
@@ -179,3 +199,5 @@ a.tag{
       }
     }
   }
+
+  /* BUTTON */

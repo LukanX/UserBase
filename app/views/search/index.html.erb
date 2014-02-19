@@ -1,0 +1,23 @@
+<% if @results.any? %>
+
+  <h1>Results for "<%= @term.capitalize %>"</h1>
+
+  <% if @participants.any? %>
+    <h3>Participants</h3>
+    <ul><%= render @participants %></ul>
+  <% end %>
+
+  <% if @studies.any? %>
+    <h3>Studies</h3>
+    <ul><%= render @studies %></ul>
+  <% end %>
+
+  <% if @interviews.any? %>
+    <h3>Interviews</h3>
+    <ul><%= render @interviews %></ul>
+  <% end %>
+
+
+<% else %>
+  <h1>Sorry, no results</h1>
+<% end %>
