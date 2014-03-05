@@ -29,7 +29,7 @@ class ParticipantsController < ApplicationController
       @participants = Participant.all
     end
 
-    list = @participants.map {|u| Hash[ id: u.id, label: u.name, name: u.name]}
+    list = @participants.map {|u| Hash[ id: u.id, label: u.name + ' (' + u.email + ')', name: u.name]}
 
     respond_to do |format|
       format.html # index.html.erb
