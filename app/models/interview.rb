@@ -30,15 +30,15 @@ class Interview < ActiveRecord::Base
   end
 
   def future_offset
-    @future_offset ||= Time.parse(@sched_date_field).utc_offset
+    @future_offset = Time.zone.parse(@sched_date_field).utc_offset
   end
 
   def present_offset
-    @present_offset ||= Time.now.utc_offset
+    @present_offset = Time.zone.now.utc_offset
   end
 
   def dst_compensation
-    @dst_compensation ||= present_offset - future_offset
+    @dst_compensation = present_offset - future_offset
   end
 
   def convert_to_datetime
